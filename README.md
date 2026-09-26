@@ -9,45 +9,49 @@ evaluates the strategy with both single-split and walk-forward backtests.
 
 ## Quick start: run the web app
 
-From the project root (`financial-advisor-bot/`). Needs **Python 3.10+** and **Node.js**.
+From the project root (`financial-advisor-bot/`). Needs **Python 3.10+** and
+**Node.js** on PATH — nothing else to install by hand:
 
 ```bash
-# 1. Backend dependencies (first time only)
-python3 -m venv venv && source venv/bin/activate
-pip install -r requirements/base.txt -r requirements/api.txt
-
-# 2. Start the FastAPI backend (:8000) and the React app (:5173) together
-#    (the frontend is npm-installed automatically on the first run)
 ./start.sh
 ```
 
-Then open **http://localhost:5173** in your browser. Press `Ctrl+C` to stop both
-servers, and keep the `venv` active whenever you run `./start.sh`.
+That's the whole setup. On the **first run** `start.sh` creates a Python virtual
+environment (`venv/`), installs the backend and frontend dependencies, then starts
+the FastAPI backend (:8000) and the Vite React dev server (:5173). Later runs skip
+straight to launching. Then open **http://localhost:5173** in your browser; press
+`Ctrl+C` to stop both servers.
 
-- Optional news-sentiment panel: `pip install -r requirements/extension-a-onnx-local.txt`
+- Optional news-sentiment panel: `source venv/bin/activate && pip install -r requirements/extension-a-onnx-local.txt`
 - Single-stock views fetch live prices from Yahoo Finance (internet required); the
   Top-N selector and evidence panels read the bundled local cache (works offline).
-- Prefer two terminals? Backend: `source venv/bin/activate && uvicorn src.api.main:app --reload --port 8000`; frontend: `cd frontend && npm install && npm run dev`.
+- Prefer to do it by hand? `python3 -m venv venv && source venv/bin/activate`, then
+  `pip install -r requirements.txt`, then `./start.sh` — or run
+  `uvicorn src.api.main:app --reload --port 8000` and, in another terminal,
+  `cd frontend && npm install && npm run dev`.
+- **macOS note:** run the project from a normal local folder (e.g. `~/Projects/`),
+  not an iCloud Drive / network-synced folder. iCloud can evict files inside
+  `node_modules`, which makes the Vite frontend fail to build with
+  `operation timed out`. If that happens, `rm -rf frontend/node_modules && ./start.sh`
+  reinstalls cleanly.
 
 ## Requirements
 
-- Python 3.10 or newer
+- Python 3.10 or newer, and Node.js (for the web app)
 - An internet connection (live market data is fetched from Yahoo Finance via `yfinance`)
 
-## Setup
+## Setup (only for the command-line tools below)
 
-Run these commands once, from the project folder (`financial-advisor-bot`):
+The web app needs no manual setup — `./start.sh` does it for you. To run the
+command-line tools directly, create the environment once, from the project folder:
 
 ```bash
-# 1. Create and activate a virtual environment
 python3 -m venv venv
 source venv/bin/activate           # Windows: venv\Scripts\activate
-
-# 2. Install dependencies
-pip install -r requirements/base.txt
+pip install -r requirements.txt    # core ML pipeline + backend + test deps, in one command
 ```
 
-For every later session, just re-activate the environment:
+For every later session, just re-activate it:
 
 ```bash
 source venv/bin/activate           # Windows: venv\Scripts\activate
@@ -323,18 +327,23 @@ UI-framework-free logic layer in `src/ui/data_access.py`. It reuses the core
 scikit-learn stack (no torch), so it runs on any machine including Intel Macs.
 
 ```bash
-pip install -r requirements/base.txt -r requirements/api.txt
-pip install -r requirements/extension-a-onnx-local.txt   # for the sentiment panel
-./start.sh   # starts FastAPI (:8000) and the Vite React dev server (:5173)
+./start.sh   # first run auto-installs deps, then starts FastAPI (:8000) + Vite (:5173)
 ```
+
+The optional FinBERT news-sentiment panel needs one extra install:
+`source venv/bin/activate && pip install -r requirements/extension-a-onnx-local.txt`.
 
 Data is fetched on demand per ticker and cached within the session, so re-runs are
 instant. See `src/ui/README.md` for the view-by-view breakdown.
 
 ### 9. Run the tests
 
+Everything the tests need is already in `requirements.txt` (including `httpx`, used
+by the API tests). The full suite runs offline except for a few live-data checks,
+and takes a few minutes.
+
 ```bash
-# Whole suite (167 tests)
+# Whole suite
 python -m pytest
 
 # Just the ML-core selection pipeline (Phases 0-2)

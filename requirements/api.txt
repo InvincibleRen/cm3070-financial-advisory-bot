@@ -4,3 +4,4 @@
 #     uvicorn src.api.main:app --reload --port 8000
 fastapi>=0.115
 uvicorn[standard]>=0.32
+httpx>=0.27          # required by FastAPI's TestClient (starlette) for the API tests

@@ -1,7 +1,10 @@
-# Convenience forwarder so the conventional `pip install -r requirements.txt`
-# still works. The real dependency lists live under requirements/:
-#   requirements/base.txt                     core ML pipeline (installed below)
-#   requirements/api.txt                      FastAPI backend for the React frontend
-#   requirements/extension-a.txt              Extension A: FinBERT sentiment (torch)
-#   requirements/extension-a-onnx-local.txt   Extension A: torch-free (x86 macOS)
+# One-shot install for the whole runnable project:
+#     pip install -r requirements.txt
+# gives you the core ML pipeline, the FastAPI backend, and everything the test
+# suite needs. The lists are split under requirements/ for clarity:
+#   requirements/base.txt                     core ML pipeline (pandas, sklearn, xgboost, pytest, ...)
+#   requirements/api.txt                      FastAPI backend + httpx (for API tests)
+#   requirements/extension-a.txt              OPTIONAL Extension A: FinBERT sentiment (torch)
+#   requirements/extension-a-onnx-local.txt   OPTIONAL Extension A: torch-free (x86 macOS)
 -r requirements/base.txt
+-r requirements/api.txt
