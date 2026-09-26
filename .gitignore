@@ -1,0 +1,26 @@
+# Virtual environments
+venv/
+venv-sentiment/
+env/
+.venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+
+# Local logs / scratch
+warnings.txt
+
+# React frontend build artefacts
+frontend/node_modules/
+frontend/dist/
+
+# Local data snapshots (large; see data/snapshots/README.md)
+data/snapshots/*.zip

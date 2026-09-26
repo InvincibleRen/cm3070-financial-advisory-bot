@@ -1,0 +1,6 @@
+# FastAPI backend for the React frontend.
+# Install on top of requirements.txt:
+#     pip install -r requirements.txt -r requirements-api.txt
+#     uvicorn src.api.main:app --reload --port 8000
+fastapi>=0.115
+uvicorn[standard]>=0.32

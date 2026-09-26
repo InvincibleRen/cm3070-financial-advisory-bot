@@ -1,0 +1,1332 @@
+{
+  "generated_at": "2026-09-25 14:06",
+  "signals": {
+    "source": "reports/signal_study_20260924_135513.md",
+    "new_buy": {
+      "5": {
+        "n": 33216.0,
+        "beat_spy": 0.492,
+        "x_spy": -0.0006,
+        "t_spy": -2.07,
+        "beat_uni": 0.502,
+        "x_uni": -0.0001,
+        "t_uni": -1.39
+      },
+      "20": {
+        "n": 33103.0,
+        "beat_spy": 0.484,
+        "x_spy": -0.0026,
+        "t_spy": -2.15,
+        "beat_uni": 0.497,
+        "x_uni": -0.0008,
+        "t_uni": -1.23
+      },
+      "60": {
+        "n": 32520.0,
+        "beat_spy": 0.46,
+        "x_spy": -0.0082,
+        "t_spy": -2.28,
+        "beat_uni": 0.48,
+        "x_uni": -0.0024,
+        "t_uni": -1.99
+      }
+    },
+    "new_sell": {
+      "5": {
+        "n": 25021.0,
+        "beat_spy": 0.492,
+        "x_spy": -0.0004,
+        "t_spy": 1.42,
+        "beat_uni": 0.508,
+        "x_uni": 0.0006,
+        "t_uni": 2.35
+      },
+      "20": {
+        "n": 24840.0,
+        "beat_spy": 0.482,
+        "x_spy": -0.002,
+        "t_spy": -0.59,
+        "beat_uni": 0.493,
+        "x_uni": -0.0001,
+        "t_uni": 0.39
+      },
+      "60": {
+        "n": 24600.0,
+        "beat_spy": 0.479,
+        "x_spy": -0.0043,
+        "t_spy": -1.32,
+        "beat_uni": 0.486,
+        "x_uni": -0.0007,
+        "t_uni": -0.65
+      }
+    },
+    "buy_state": {
+      "5": {
+        "n": 314141.0,
+        "beat_spy": 0.487,
+        "x_spy": -0.0008,
+        "t_spy": -2.7,
+        "beat_uni": 0.496,
+        "x_uni": -0.0004,
+        "t_uni": -1.96
+      },
+      "20": {
+        "n": 312898.0,
+        "beat_spy": 0.474,
+        "x_spy": -0.0029,
+        "t_spy": -2.75,
+        "beat_uni": 0.491,
+        "x_uni": -0.0009,
+        "t_uni": -1.87
+      },
+      "60": {
+        "n": 307699.0,
+        "beat_spy": 0.46,
+        "x_spy": -0.0083,
+        "t_spy": -2.77,
+        "beat_uni": 0.485,
+        "x_uni": -0.0009,
+        "t_uni": -2.12
+      }
+    },
+    "sell_state": {
+      "5": {
+        "n": 203412.0,
+        "beat_spy": 0.498,
+        "x_spy": 0.0,
+        "t_spy": 0.28,
+        "beat_uni": 0.506,
+        "x_uni": 0.0006,
+        "t_uni": 1.2
+      },
+      "20": {
+        "n": 202404.0,
+        "beat_spy": 0.49,
+        "x_spy": -0.001,
+        "t_spy": -0.45,
+        "beat_uni": 0.498,
+        "x_uni": 0.0006,
+        "t_uni": 0.37
+      },
+      "60": {
+        "n": 200950.0,
+        "beat_spy": 0.49,
+        "x_spy": 0.0001,
+        "t_spy": -1.08,
+        "beat_uni": 0.494,
+        "x_uni": 0.0018,
+        "t_uni": -0.33
+      }
+    },
+    "all_member_days": {
+      "5": {
+        "n": 1255972.0,
+        "beat_spy": 0.491,
+        "x_spy": -0.0004,
+        "t_spy": -1.09,
+        "beat_uni": 0.499,
+        "x_uni": 0.0,
+        "t_uni": null
+      },
+      "20": {
+        "n": 1248457.0,
+        "beat_spy": 0.482,
+        "x_spy": -0.0015,
+        "t_spy": -1.18,
+        "beat_uni": 0.494,
+        "x_uni": -0.0,
+        "t_uni": null
+      },
+      "60": {
+        "n": 1228547.0,
+        "beat_spy": 0.471,
+        "x_spy": -0.0048,
+        "t_spy": -1.33,
+        "beat_uni": 0.487,
+        "x_uni": 0.0,
+        "t_uni": null
+      }
+    },
+    "period": "2015 to 2026",
+    "verdict": "In this test, neither Buy nor Sell signals did meaningfully better than a typical stock: they carried no reliable information about what a stock would do next."
+  },
+  "model": {
+    "unbiased": {
+      "source": "reports/hurdle_historical_rank_20260924_122853.md",
+      "period": "2015-01-01 to latest, 140 monthly rebalances",
+      "walk_forward_start": "2015-01-01",
+      "rows": {
+        "XGBoost": {
+          "cagr": 0.0557,
+          "sharpe": 0.34,
+          "max_dd": -0.4259,
+          "alpha": -0.0533,
+          "alpha_t": -0.77,
+          "beta": 0.93,
+          "expectancy": -0.0034,
+          "matched_random": 0.0003,
+          "p_random": 0.724,
+          "p_matched": 0.871,
+          "vol_percentile": 0.51,
+          "win_rate": 0.459,
+          "ic": -0.014,
+          "ic_t": -1.48
+        },
+        "Random forest": {
+          "cagr": 0.1031,
+          "sharpe": 0.48,
+          "max_dd": -0.3437,
+          "alpha": -0.0125,
+          "alpha_t": -0.16,
+          "beta": 1.04,
+          "expectancy": 0.0012,
+          "matched_random": -0.0016,
+          "p_random": 0.165,
+          "p_matched": 0.193,
+          "vol_percentile": 0.47,
+          "win_rate": 0.464,
+          "ic": -0.016,
+          "ic_t": -1.4
+        },
+        "Ridge (auxiliary)": {
+          "cagr": 0.0552,
+          "sharpe": 0.33,
+          "max_dd": -0.3335,
+          "alpha": -0.0286,
+          "alpha_t": -0.41,
+          "beta": 0.71,
+          "expectancy": -0.0037,
+          "matched_random": -0.0013,
+          "p_random": 0.76,
+          "p_matched": 0.78,
+          "vol_percentile": 0.57,
+          "win_rate": 0.456,
+          "ic": -0.005,
+          "ic_t": -0.33
+        },
+        "xgb classifier (median label, top-N)": {
+          "cagr": 0.0085,
+          "sharpe": 0.15,
+          "max_dd": -0.4234,
+          "alpha": -0.1186,
+          "alpha_t": -2.37,
+          "beta": 1.08,
+          "expectancy": -0.0073,
+          "matched_random": -0.0009,
+          "p_random": 0.977,
+          "p_matched": 0.979,
+          "vol_percentile": 0.58,
+          "win_rate": 0.441,
+          "ic": -0.015,
+          "ic_t": -1.6
+        },
+        "Rank on volatility alone (single factor)": {
+          "cagr": 0.081,
+          "sharpe": 0.39,
+          "max_dd": -0.709,
+          "alpha": -0.089,
+          "alpha_t": -0.79,
+          "beta": 2.08,
+          "expectancy": 0.0046,
+          "matched_random": 0.0039,
+          "p_random": 0.026,
+          "p_matched": 0.446,
+          "vol_percentile": 1.0,
+          "win_rate": 0.472,
+          "ic": -0.007,
+          "ic_t": -0.36
+        },
+        "Rank on beta alone (single factor)": {
+          "cagr": 0.3378,
+          "sharpe": 0.85,
+          "max_dd": -0.3916,
+          "alpha": 0.0862,
+          "alpha_t": 0.98,
+          "beta": 2.28,
+          "expectancy": 0.0209,
+          "matched_random": 0.0051,
+          "p_random": 0.0,
+          "p_matched": 0.0,
+          "vol_percentile": 0.95,
+          "win_rate": 0.513,
+          "ic": -0.008,
+          "ic_t": -0.37
+        },
+        "SPY": {
+          "cagr": 0.1423,
+          "sharpe": 0.96,
+          "max_dd": -0.2393
+        }
+      }
+    },
+    "biased": {
+      "source": "reports/hurdle_current_rank_20260924_122626.md",
+      "period": "2015-01-01 to latest, 140 monthly rebalances",
+      "walk_forward_start": "2015-01-01",
+      "rows": {
+        "XGBoost": {
+          "cagr": 0.2882,
+          "sharpe": 0.88,
+          "max_dd": -0.335,
+          "alpha": 0.1358,
+          "alpha_t": 1.5,
+          "beta": 1.23,
+          "expectancy": 0.0156,
+          "matched_random": 0.0103,
+          "p_random": 0.0,
+          "p_matched": 0.085,
+          "vol_percentile": 0.64,
+          "win_rate": 0.492,
+          "ic": -0.013,
+          "ic_t": -1.36
+        },
+        "Random forest": {
+          "cagr": 0.2974,
+          "sharpe": 0.89,
+          "max_dd": -0.371,
+          "alpha": 0.1365,
+          "alpha_t": 1.35,
+          "beta": 1.33,
+          "expectancy": 0.0167,
+          "matched_random": 0.0078,
+          "p_random": 0.0,
+          "p_matched": 0.017,
+          "vol_percentile": 0.59,
+          "win_rate": 0.491,
+          "ic": -0.014,
+          "ic_t": -1.27
+        },
+        "Ridge (auxiliary)": {
+          "cagr": 0.3247,
+          "sharpe": 1.09,
+          "max_dd": -0.2375,
+          "alpha": 0.1752,
+          "alpha_t": 2.07,
+          "beta": 1.04,
+          "expectancy": 0.0168,
+          "matched_random": 0.0076,
+          "p_random": 0.0,
+          "p_matched": 0.01,
+          "vol_percentile": 0.66,
+          "win_rate": 0.532,
+          "ic": -0.005,
+          "ic_t": -0.42
+        },
+        "xgb classifier (median label, top-N)": {
+          "cagr": 0.164,
+          "sharpe": 0.64,
+          "max_dd": -0.4415,
+          "alpha": 0.0141,
+          "alpha_t": 0.22,
+          "beta": 1.32,
+          "expectancy": 0.0063,
+          "matched_random": 0.007,
+          "p_random": 0.073,
+          "p_matched": 0.565,
+          "vol_percentile": 0.7,
+          "win_rate": 0.469,
+          "ic": -0.016,
+          "ic_t": -1.84
+        },
+        "Rank on volatility alone (single factor)": {
+          "cagr": 0.5947,
+          "sharpe": 1.1,
+          "max_dd": -0.7588,
+          "alpha": 0.2888,
+          "alpha_t": 2.32,
+          "beta": 2.42,
+          "expectancy": 0.0395,
+          "matched_random": 0.0252,
+          "p_random": 0.0,
+          "p_matched": 0.006,
+          "vol_percentile": 1.0,
+          "win_rate": 0.522,
+          "ic": 0.01,
+          "ic_t": 0.53
+        },
+        "Rank on beta alone (single factor)": {
+          "cagr": 0.5912,
+          "sharpe": 1.11,
+          "max_dd": -0.7196,
+          "alpha": 0.2766,
+          "alpha_t": 2.47,
+          "beta": 2.48,
+          "expectancy": 0.0388,
+          "matched_random": 0.0216,
+          "p_random": 0.0,
+          "p_matched": 0.0,
+          "vol_percentile": 0.96,
+          "win_rate": 0.547,
+          "ic": 0.003,
+          "ic_t": 0.13
+        },
+        "SPY": {
+          "cagr": 0.1423,
+          "sharpe": 0.96,
+          "max_dd": -0.2393
+        }
+      }
+    }
+  },
+  "research": {
+    "selectors": {
+      "source": "reports/hurdle_historical_rank_20260924_122853.md",
+      "period": "2015-01-01 to latest, 140 monthly rebalances",
+      "rows": [
+        {
+          "model": "XGBoost regressor",
+          "cagr": 0.0557,
+          "sharpe": 0.34,
+          "max_dd": -0.4259,
+          "alpha": -0.0533,
+          "alpha_t": -0.77,
+          "beta": 0.93,
+          "expectancy": -0.0034,
+          "matched_random": 0.0003,
+          "p_random": 0.724,
+          "p_matched": 0.871,
+          "vol_percentile": 0.51,
+          "win_rate": 0.459,
+          "ic": -0.014,
+          "ic_t": -1.48
+        },
+        {
+          "model": "Random forest regressor",
+          "cagr": 0.1031,
+          "sharpe": 0.48,
+          "max_dd": -0.3437,
+          "alpha": -0.0125,
+          "alpha_t": -0.16,
+          "beta": 1.04,
+          "expectancy": 0.0012,
+          "matched_random": -0.0016,
+          "p_random": 0.165,
+          "p_matched": 0.193,
+          "vol_percentile": 0.47,
+          "win_rate": 0.464,
+          "ic": -0.016,
+          "ic_t": -1.4
+        },
+        {
+          "model": "Ridge regressor (baseline)",
+          "cagr": 0.0552,
+          "sharpe": 0.33,
+          "max_dd": -0.3335,
+          "alpha": -0.0286,
+          "alpha_t": -0.41,
+          "beta": 0.71,
+          "expectancy": -0.0037,
+          "matched_random": -0.0013,
+          "p_random": 0.76,
+          "p_matched": 0.78,
+          "vol_percentile": 0.57,
+          "win_rate": 0.456,
+          "ic": -0.005,
+          "ic_t": -0.33
+        },
+        {
+          "model": "XGBoost classifier (the app's selector)",
+          "cagr": 0.0085,
+          "sharpe": 0.15,
+          "max_dd": -0.4234,
+          "alpha": -0.1186,
+          "alpha_t": -2.37,
+          "beta": 1.08,
+          "expectancy": -0.0073,
+          "matched_random": -0.0009,
+          "p_random": 0.977,
+          "p_matched": 0.979,
+          "vol_percentile": 0.58,
+          "win_rate": 0.441,
+          "ic": -0.015,
+          "ic_t": -1.6
+        },
+        {
+          "model": "Single factor: 5 most volatile",
+          "cagr": 0.081,
+          "sharpe": 0.39,
+          "max_dd": -0.709,
+          "alpha": -0.089,
+          "alpha_t": -0.79,
+          "beta": 2.08,
+          "expectancy": 0.0046,
+          "matched_random": 0.0039,
+          "p_random": 0.026,
+          "p_matched": 0.446,
+          "vol_percentile": 1.0,
+          "win_rate": 0.472,
+          "ic": -0.007,
+          "ic_t": -0.36
+        },
+        {
+          "model": "Single factor: 5 highest-beta",
+          "cagr": 0.3378,
+          "sharpe": 0.85,
+          "max_dd": -0.3916,
+          "alpha": 0.0862,
+          "alpha_t": 0.98,
+          "beta": 2.28,
+          "expectancy": 0.0209,
+          "matched_random": 0.0051,
+          "p_random": 0.0,
+          "p_matched": 0.0,
+          "vol_percentile": 0.95,
+          "win_rate": 0.513,
+          "ic": -0.008,
+          "ic_t": -0.37
+        }
+      ],
+      "spy": {
+        "cagr": 0.1423,
+        "sharpe": 0.96,
+        "max_dd": -0.2393
+      }
+    },
+    "signals": {
+      "source": "reports/signal_study_20260924_135513.md",
+      "period": "2015 to 2026",
+      "rows": [
+        {
+          "signal": "New Buy signal (the day it appears)",
+          "horizon": 5,
+          "n": 33216.0,
+          "beat_spy": 0.492,
+          "x_spy": -0.0006,
+          "t_spy": -2.07,
+          "beat_uni": 0.502,
+          "x_uni": -0.0001,
+          "t_uni": -1.39
+        },
+        {
+          "signal": "New Buy signal (the day it appears)",
+          "horizon": 20,
+          "n": 33103.0,
+          "beat_spy": 0.484,
+          "x_spy": -0.0026,
+          "t_spy": -2.15,
+          "beat_uni": 0.497,
+          "x_uni": -0.0008,
+          "t_uni": -1.23
+        },
+        {
+          "signal": "New Buy signal (the day it appears)",
+          "horizon": 60,
+          "n": 32520.0,
+          "beat_spy": 0.46,
+          "x_spy": -0.0082,
+          "t_spy": -2.28,
+          "beat_uni": 0.48,
+          "x_uni": -0.0024,
+          "t_uni": -1.99
+        },
+        {
+          "signal": "New Sell signal (the day it appears)",
+          "horizon": 5,
+          "n": 25021.0,
+          "beat_spy": 0.492,
+          "x_spy": -0.0004,
+          "t_spy": 1.42,
+          "beat_uni": 0.508,
+          "x_uni": 0.0006,
+          "t_uni": 2.35
+        },
+        {
+          "signal": "New Sell signal (the day it appears)",
+          "horizon": 20,
+          "n": 24840.0,
+          "beat_spy": 0.482,
+          "x_spy": -0.002,
+          "t_spy": -0.59,
+          "beat_uni": 0.493,
+          "x_uni": -0.0001,
+          "t_uni": 0.39
+        },
+        {
+          "signal": "New Sell signal (the day it appears)",
+          "horizon": 60,
+          "n": 24600.0,
+          "beat_spy": 0.479,
+          "x_spy": -0.0043,
+          "t_spy": -1.32,
+          "beat_uni": 0.486,
+          "x_uni": -0.0007,
+          "t_uni": -0.65
+        },
+        {
+          "signal": "Any day the signal is Buy",
+          "horizon": 5,
+          "n": 314141.0,
+          "beat_spy": 0.487,
+          "x_spy": -0.0008,
+          "t_spy": -2.7,
+          "beat_uni": 0.496,
+          "x_uni": -0.0004,
+          "t_uni": -1.96
+        },
+        {
+          "signal": "Any day the signal is Buy",
+          "horizon": 20,
+          "n": 312898.0,
+          "beat_spy": 0.474,
+          "x_spy": -0.0029,
+          "t_spy": -2.75,
+          "beat_uni": 0.491,
+          "x_uni": -0.0009,
+          "t_uni": -1.87
+        },
+        {
+          "signal": "Any day the signal is Buy",
+          "horizon": 60,
+          "n": 307699.0,
+          "beat_spy": 0.46,
+          "x_spy": -0.0083,
+          "t_spy": -2.77,
+          "beat_uni": 0.485,
+          "x_uni": -0.0009,
+          "t_uni": -2.12
+        },
+        {
+          "signal": "Any day the signal is Sell",
+          "horizon": 5,
+          "n": 203412.0,
+          "beat_spy": 0.498,
+          "x_spy": 0.0,
+          "t_spy": 0.28,
+          "beat_uni": 0.506,
+          "x_uni": 0.0006,
+          "t_uni": 1.2
+        },
+        {
+          "signal": "Any day the signal is Sell",
+          "horizon": 20,
+          "n": 202404.0,
+          "beat_spy": 0.49,
+          "x_spy": -0.001,
+          "t_spy": -0.45,
+          "beat_uni": 0.498,
+          "x_uni": 0.0006,
+          "t_uni": 0.37
+        },
+        {
+          "signal": "Any day the signal is Sell",
+          "horizon": 60,
+          "n": 200950.0,
+          "beat_spy": 0.49,
+          "x_spy": 0.0001,
+          "t_spy": -1.08,
+          "beat_uni": 0.494,
+          "x_uni": 0.0018,
+          "t_uni": -0.33
+        },
+        {
+          "signal": "Every member stock-day (reference)",
+          "horizon": 5,
+          "n": 1255972.0,
+          "beat_spy": 0.491,
+          "x_spy": -0.0004,
+          "t_spy": -1.09,
+          "beat_uni": 0.499,
+          "x_uni": 0.0,
+          "t_uni": null
+        },
+        {
+          "signal": "Every member stock-day (reference)",
+          "horizon": 20,
+          "n": 1248457.0,
+          "beat_spy": 0.482,
+          "x_spy": -0.0015,
+          "t_spy": -1.18,
+          "beat_uni": 0.494,
+          "x_uni": -0.0,
+          "t_uni": null
+        },
+        {
+          "signal": "Every member stock-day (reference)",
+          "horizon": 60,
+          "n": 1228547.0,
+          "beat_spy": 0.471,
+          "x_spy": -0.0048,
+          "t_spy": -1.33,
+          "beat_uni": 0.487,
+          "x_uni": 0.0,
+          "t_uni": null
+        }
+      ]
+    },
+    "survivorship": {
+      "sources": [
+        "reports/hurdle_current_rank_20260924_122626.md",
+        "reports/hurdle_historical_rank_20260924_122853.md"
+      ],
+      "rows": [
+        {
+          "model": "XGBoost regressor",
+          "current": {
+            "cagr": 0.2882,
+            "alpha": 0.1358,
+            "alpha_t": 1.5
+          },
+          "historical": {
+            "cagr": 0.0557,
+            "alpha": -0.0533,
+            "alpha_t": -0.77
+          }
+        },
+        {
+          "model": "Random forest regressor",
+          "current": {
+            "cagr": 0.2974,
+            "alpha": 0.1365,
+            "alpha_t": 1.35
+          },
+          "historical": {
+            "cagr": 0.1031,
+            "alpha": -0.0125,
+            "alpha_t": -0.16
+          }
+        },
+        {
+          "model": "Ridge regressor (baseline)",
+          "current": {
+            "cagr": 0.3247,
+            "alpha": 0.1752,
+            "alpha_t": 2.07
+          },
+          "historical": {
+            "cagr": 0.0552,
+            "alpha": -0.0286,
+            "alpha_t": -0.41
+          }
+        },
+        {
+          "model": "XGBoost classifier (the app's selector)",
+          "current": {
+            "cagr": 0.164,
+            "alpha": 0.0141,
+            "alpha_t": 0.22
+          },
+          "historical": {
+            "cagr": 0.0085,
+            "alpha": -0.1186,
+            "alpha_t": -2.37
+          }
+        },
+        {
+          "model": "Single factor: 5 most volatile",
+          "current": {
+            "cagr": 0.5947,
+            "alpha": 0.2888,
+            "alpha_t": 2.32
+          },
+          "historical": {
+            "cagr": 0.081,
+            "alpha": -0.089,
+            "alpha_t": -0.79
+          }
+        },
+        {
+          "model": "Single factor: 5 highest-beta",
+          "current": {
+            "cagr": 0.5912,
+            "alpha": 0.2766,
+            "alpha_t": 2.47
+          },
+          "historical": {
+            "cagr": 0.3378,
+            "alpha": 0.0862,
+            "alpha_t": 0.98
+          }
+        }
+      ],
+      "spy": {
+        "cagr": 0.1423,
+        "sharpe": 0.96,
+        "max_dd": -0.2393
+      }
+    },
+    "model_eval": {
+      "source": "reports/ml_evaluation_historical_rank_20260924_121408.md",
+      "r2": [
+        {
+          "model": "XGBoost",
+          "r2_oos": -0.0841,
+          "r2_is": 0.2026,
+          "gap": 0.2866,
+          "rmse": 0.8989,
+          "baseline_rmse": 0.8696,
+          "ic": -0.014,
+          "ic_t": -1.48,
+          "folds": 132.0,
+          "verdict": "worse than the constant"
+        },
+        {
+          "model": "Random forest",
+          "r2_oos": -0.0389,
+          "r2_is": 0.0921,
+          "gap": 0.131,
+          "rmse": 0.8834,
+          "baseline_rmse": 0.8696,
+          "ic": -0.016,
+          "ic_t": -1.4,
+          "folds": 132.0,
+          "verdict": "worse than the constant"
+        },
+        {
+          "model": "Ridge (auxiliary)",
+          "r2_oos": -0.0292,
+          "r2_is": 0.0177,
+          "gap": 0.0469,
+          "rmse": 0.8797,
+          "baseline_rmse": 0.8696,
+          "ic": -0.005,
+          "ic_t": -0.33,
+          "folds": 132.0,
+          "verdict": "worse than the constant"
+        }
+      ],
+      "learning_curve": [
+        {
+          "window": "3m",
+          "r2_oos": -0.1782,
+          "r2_is": 0.4973,
+          "gap": 0.6756,
+          "ic": -0.017,
+          "ic_t": -1.89
+        },
+        {
+          "window": "6m",
+          "r2_oos": -0.1222,
+          "r2_is": 0.3227,
+          "gap": 0.4449,
+          "ic": -0.012,
+          "ic_t": -1.2
+        },
+        {
+          "window": "12m",
+          "r2_oos": -0.0841,
+          "r2_is": 0.2026,
+          "gap": 0.2866,
+          "ic": -0.014,
+          "ic_t": -1.48
+        },
+        {
+          "window": "24m",
+          "r2_oos": -0.0589,
+          "r2_is": 0.1305,
+          "gap": 0.1894,
+          "ic": -0.015,
+          "ic_t": -1.76
+        },
+        {
+          "window": "36m",
+          "r2_oos": -0.045,
+          "r2_is": 0.1061,
+          "gap": 0.1511,
+          "ic": -0.008,
+          "ic_t": -1.02
+        },
+        {
+          "window": "expanding",
+          "r2_oos": -0.0373,
+          "r2_is": 0.0807,
+          "gap": 0.118,
+          "ic": -0.004,
+          "ic_t": -0.53
+        }
+      ],
+      "stability": {
+        "pred_autocorr": 0.215,
+        "target_autocorr": -0.004
+      },
+      "by_year": [
+        {
+          "year": "2015",
+          "r2_oos": -0.1722,
+          "ic": -0.054,
+          "rows": 1953.0
+        },
+        {
+          "year": "2016",
+          "r2_oos": -0.0478,
+          "ic": 0.036,
+          "rows": 4892.0
+        },
+        {
+          "year": "2017",
+          "r2_oos": -0.0472,
+          "ic": -0.011,
+          "rows": 5103.0
+        },
+        {
+          "year": "2018",
+          "r2_oos": -0.0459,
+          "ic": -0.009,
+          "rows": 5250.0
+        },
+        {
+          "year": "2019",
+          "r2_oos": -0.0226,
+          "ic": 0.061,
+          "rows": 5379.0
+        },
+        {
+          "year": "2020",
+          "r2_oos": -0.0943,
+          "ic": -0.061,
+          "rows": 5507.0
+        },
+        {
+          "year": "2021",
+          "r2_oos": -0.078,
+          "ic": -0.071,
+          "rows": 5592.0
+        },
+        {
+          "year": "2022",
+          "r2_oos": -0.0982,
+          "ic": -0.055,
+          "rows": 5684.0
+        },
+        {
+          "year": "2023",
+          "r2_oos": -0.0912,
+          "ic": -0.101,
+          "rows": 5776.0
+        },
+        {
+          "year": "2024",
+          "r2_oos": -0.0705,
+          "ic": -0.056,
+          "rows": 5829.0
+        },
+        {
+          "year": "2025",
+          "r2_oos": -0.0772,
+          "ic": -0.053,
+          "rows": 5910.0
+        },
+        {
+          "year": "2026",
+          "r2_oos": -0.0516,
+          "ic": -0.025,
+          "rows": 3482.0
+        }
+      ],
+      "by_vol": [
+        {
+          "bucket": "0",
+          "r2_oos": -0.0665,
+          "ic": -0.036,
+          "rows": 12123.0
+        },
+        {
+          "bucket": "1",
+          "r2_oos": -0.0625,
+          "ic": -0.037,
+          "rows": 12044.0
+        },
+        {
+          "bucket": "2",
+          "r2_oos": -0.0556,
+          "ic": -0.023,
+          "rows": 12049.0
+        },
+        {
+          "bucket": "3",
+          "r2_oos": -0.0598,
+          "ic": -0.017,
+          "rows": 12044.0
+        },
+        {
+          "bucket": "4",
+          "r2_oos": -0.0952,
+          "ic": -0.013,
+          "rows": 12097.0
+        }
+      ]
+    },
+    "shap": {
+      "source": "reports/explain_xgb_historical_rank_20260924_135952.md",
+      "rows": [
+        {
+          "feature": "mom_12m",
+          "meaning": "12-1 month return (skips the last month)",
+          "reliance": 0.096,
+          "direction": "higher -> lower prediction (-0.19)",
+          "own_ic": -0.014,
+          "own_ic_t": -0.83,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.96
+        },
+        {
+          "feature": "mom_1m",
+          "meaning": "1-month return",
+          "reliance": 0.093,
+          "direction": "higher -> higher prediction (+0.15)",
+          "own_ic": -0.004,
+          "own_ic_t": -0.31,
+          "backed": "no support (own IC not significant)",
+          "coverage": 1.0
+        },
+        {
+          "feature": "mom_6m",
+          "meaning": "6-month return",
+          "reliance": 0.092,
+          "direction": "higher -> higher prediction (+0.17)",
+          "own_ic": -0.0,
+          "own_ic_t": -0.01,
+          "backed": "no support (own IC not significant)",
+          "coverage": 1.0
+        },
+        {
+          "feature": "high_52w",
+          "meaning": "price / 52-week high",
+          "reliance": 0.092,
+          "direction": "no clear direction (-0.05)",
+          "own_ic": -0.005,
+          "own_ic_t": -0.28,
+          "backed": "n/a",
+          "coverage": 1.0
+        },
+        {
+          "feature": "mom_3m",
+          "meaning": "3-month return",
+          "reliance": 0.089,
+          "direction": "higher -> lower prediction (-0.22)",
+          "own_ic": -0.011,
+          "own_ic_t": -0.71,
+          "backed": "no support (own IC not significant)",
+          "coverage": 1.0
+        },
+        {
+          "feature": "volatility",
+          "meaning": "21-day volatility",
+          "reliance": 0.087,
+          "direction": "higher -> lower prediction (-0.18)",
+          "own_ic": -0.006,
+          "own_ic_t": -0.35,
+          "backed": "no support (own IC not significant)",
+          "coverage": 1.0
+        },
+        {
+          "feature": "reversal_5d",
+          "meaning": "last 5 days' return",
+          "reliance": 0.084,
+          "direction": "higher -> lower prediction (-0.17)",
+          "own_ic": -0.011,
+          "own_ic_t": -0.82,
+          "backed": "no support (own IC not significant)",
+          "coverage": 1.0
+        },
+        {
+          "feature": "macd",
+          "meaning": "MACD",
+          "reliance": 0.077,
+          "direction": "higher -> lower prediction (-0.25)",
+          "own_ic": -0.008,
+          "own_ic_t": -0.59,
+          "backed": "no support (own IC not significant)",
+          "coverage": 1.0
+        },
+        {
+          "feature": "mom_risk_adj",
+          "meaning": "12-1 momentum / volatility",
+          "reliance": 0.075,
+          "direction": "higher -> higher prediction (+0.21)",
+          "own_ic": -0.008,
+          "own_ic_t": -0.48,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.96
+        },
+        {
+          "feature": "adx",
+          "meaning": "ADX trend strength",
+          "reliance": 0.072,
+          "direction": "no clear direction (-0.06)",
+          "own_ic": 0.0,
+          "own_ic_t": 0.03,
+          "backed": "n/a",
+          "coverage": 1.0
+        },
+        {
+          "feature": "earnings_growth",
+          "meaning": "earnings growth (YoY)",
+          "reliance": 0.031,
+          "direction": "higher -> higher prediction (+0.26)",
+          "own_ic": 0.01,
+          "own_ic_t": 0.3,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.16
+        },
+        {
+          "feature": "pe",
+          "meaning": "price / earnings",
+          "reliance": 0.024,
+          "direction": "higher -> lower prediction (-0.28)",
+          "own_ic": -0.03,
+          "own_ic_t": -1.23,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.26
+        },
+        {
+          "feature": "roe",
+          "meaning": "return on equity",
+          "reliance": 0.024,
+          "direction": "higher -> lower prediction (-0.29)",
+          "own_ic": 0.006,
+          "own_ic_t": 0.32,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.27
+        },
+        {
+          "feature": "debt_to_equity",
+          "meaning": "debt / equity",
+          "reliance": 0.024,
+          "direction": "higher -> higher prediction (+0.27)",
+          "own_ic": -0.003,
+          "own_ic_t": -0.19,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.33
+        },
+        {
+          "feature": "pb",
+          "meaning": "price / book",
+          "reliance": 0.022,
+          "direction": "higher -> lower prediction (-0.28)",
+          "own_ic": -0.026,
+          "own_ic_t": -1.15,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.31
+        },
+        {
+          "feature": "net_margin",
+          "meaning": "net margin",
+          "reliance": 0.019,
+          "direction": "higher -> higher prediction (+0.17)",
+          "own_ic": 0.017,
+          "own_ic_t": 0.93,
+          "backed": "no support (own IC not significant)",
+          "coverage": 0.33
+        }
+      ]
+    },
+    "index_events": {
+      "source": "reports/index_events_20260924_135434.md",
+      "added": [
+        {
+          "window": "-60..-1",
+          "n": 193.0,
+          "beat_spy": 0.76,
+          "mean": 0.1519,
+          "median": 0.0904,
+          "t": 6.46
+        },
+        {
+          "window": "-20..-1",
+          "n": 198.0,
+          "beat_spy": 0.6,
+          "mean": 0.0438,
+          "median": 0.0219,
+          "t": 4.68
+        },
+        {
+          "window": "-5..-1",
+          "n": 199.0,
+          "beat_spy": 0.47,
+          "mean": 0.0122,
+          "median": -0.0056,
+          "t": 2.91
+        },
+        {
+          "window": "0..+4",
+          "n": 199.0,
+          "beat_spy": 0.51,
+          "mean": 0.0001,
+          "median": 0.0008,
+          "t": 0.51
+        },
+        {
+          "window": "0..+19",
+          "n": 199.0,
+          "beat_spy": 0.48,
+          "mean": -0.0072,
+          "median": -0.0046,
+          "t": -0.64
+        },
+        {
+          "window": "0..+59",
+          "n": 197.0,
+          "beat_spy": 0.52,
+          "mean": -0.0014,
+          "median": 0.0024,
+          "t": -0.09
+        },
+        {
+          "window": "0..+249",
+          "n": 184.0,
+          "beat_spy": 0.4,
+          "mean": -0.0456,
+          "median": -0.0627,
+          "t": -1.82
+        }
+      ],
+      "demoted": [
+        {
+          "window": "-60..-1",
+          "n": 101.0,
+          "beat_spy": 0.2,
+          "mean": -0.1374,
+          "median": -0.1236,
+          "t": -5.57
+        },
+        {
+          "window": "-20..-1",
+          "n": 103.0,
+          "beat_spy": 0.47,
+          "mean": -0.0236,
+          "median": -0.012,
+          "t": -2.6
+        },
+        {
+          "window": "-5..-1",
+          "n": 103.0,
+          "beat_spy": 0.43,
+          "mean": -0.0129,
+          "median": -0.0064,
+          "t": -1.06
+        },
+        {
+          "window": "0..+4",
+          "n": 103.0,
+          "beat_spy": 0.44,
+          "mean": 0.008,
+          "median": -0.0037,
+          "t": 0.99
+        },
+        {
+          "window": "0..+19",
+          "n": 103.0,
+          "beat_spy": 0.49,
+          "mean": 0.0004,
+          "median": -0.009,
+          "t": 0.22
+        },
+        {
+          "window": "0..+59",
+          "n": 103.0,
+          "beat_spy": 0.39,
+          "mean": 0.0065,
+          "median": -0.0259,
+          "t": 0.19
+        },
+        {
+          "window": "0..+249",
+          "n": 91.0,
+          "beat_spy": 0.4,
+          "mean": -0.0178,
+          "median": -0.0873,
+          "t": -0.44
+        }
+      ]
+    },
+    "fundamentals_2023": {
+      "sources": [
+        "reports/hurdle_historical_rank_from2023_20260924_140904.md",
+        "reports/hurdle_historical_rank_from2023_nofund_20260924_140729.md"
+      ],
+      "walk_forward_start": "2023-01-01 (prices from 2015-01-01)",
+      "rows": [
+        {
+          "variant": "With fundamentals",
+          "model": "XGBoost regressor",
+          "cagr": 0.3081,
+          "sharpe": 1.0,
+          "max_dd": -0.1663,
+          "alpha": 0.1427,
+          "alpha_t": 0.78,
+          "beta": 0.89,
+          "expectancy": 0.0122,
+          "matched_random": 0.0036,
+          "p_random": 0.012,
+          "p_matched": 0.135,
+          "vol_percentile": 0.55,
+          "win_rate": 0.465,
+          "ic": -0.012,
+          "ic_t": -0.85
+        },
+        {
+          "variant": "With fundamentals",
+          "model": "Random forest regressor",
+          "cagr": 0.3328,
+          "sharpe": 0.87,
+          "max_dd": -0.3235,
+          "alpha": 0.1356,
+          "alpha_t": 0.57,
+          "beta": 1.35,
+          "expectancy": 0.0172,
+          "matched_random": 0.0004,
+          "p_random": 0.003,
+          "p_matched": 0.022,
+          "vol_percentile": 0.52,
+          "win_rate": 0.476,
+          "ic": -0.025,
+          "ic_t": -1.49
+        },
+        {
+          "variant": "Technical only",
+          "model": "XGBoost regressor",
+          "cagr": 0.1478,
+          "sharpe": 0.55,
+          "max_dd": -0.2726,
+          "alpha": -0.0179,
+          "alpha_t": -0.1,
+          "beta": 1.16,
+          "expectancy": 0.0021,
+          "matched_random": 0.0023,
+          "p_random": 0.163,
+          "p_matched": 0.503,
+          "vol_percentile": 0.51,
+          "win_rate": 0.505,
+          "ic": -0.005,
+          "ic_t": -0.28
+        },
+        {
+          "variant": "Technical only",
+          "model": "Random forest regressor",
+          "cagr": 0.219,
+          "sharpe": 0.65,
+          "max_dd": -0.2749,
+          "alpha": -0.0034,
+          "alpha_t": -0.02,
+          "beta": 1.64,
+          "expectancy": 0.0092,
+          "matched_random": 0.0031,
+          "p_random": 0.024,
+          "p_matched": 0.23,
+          "vol_percentile": 0.52,
+          "win_rate": 0.497,
+          "ic": -0.013,
+          "ic_t": -0.62
+        }
+      ],
+      "spy": {
+        "cagr": 0.1966,
+        "sharpe": 1.46,
+        "max_dd": -0.0758
+      }
+    }
+  },
+  "latency": {
+    "metric": "single-stock recommendation compute (indicators + rule-based advisor), from cached prices, excluding data retrieval",
+    "median_ms": 9.61,
+    "mean_ms": 9.78,
+    "p95_ms": 11.33,
+    "p99_ms": 12.3,
+    "min_ms": 7.59,
+    "max_ms": 65.82,
+    "n_samples": 3070,
+    "n_tickers": 614,
+    "repeats_per_ticker": 5,
+    "generated_at": "2026-09-26T10:45:24"
+  }
+}
