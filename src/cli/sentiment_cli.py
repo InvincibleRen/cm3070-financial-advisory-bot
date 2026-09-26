@@ -7,7 +7,7 @@ a demonstration of the Extension-A integration rather than a historical backtest
 
 Requires the Extension-A dependencies:
 
-    pip install -r requirements-extension-a.txt
+    pip install -r requirements/extension-a.txt
 
 Examples
 --------

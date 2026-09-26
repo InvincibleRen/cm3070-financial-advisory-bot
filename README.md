@@ -14,7 +14,7 @@ From the project root (`financial-advisor-bot/`). Needs **Python 3.10+** and **N
 ```bash
 # 1. Backend dependencies (first time only)
 python3 -m venv venv && source venv/bin/activate
-pip install -r requirements.txt -r requirements-api.txt
+pip install -r requirements/base.txt -r requirements/api.txt
 
 # 2. Start the FastAPI backend (:8000) and the React app (:5173) together
 #    (the frontend is npm-installed automatically on the first run)
@@ -24,7 +24,7 @@ pip install -r requirements.txt -r requirements-api.txt
 Then open **http://localhost:5173** in your browser. Press `Ctrl+C` to stop both
 servers, and keep the `venv` active whenever you run `./start.sh`.
 
-- Optional news-sentiment panel: `pip install -r requirements-extension-a-onnx-local.txt`
+- Optional news-sentiment panel: `pip install -r requirements/extension-a-onnx-local.txt`
 - Single-stock views fetch live prices from Yahoo Finance (internet required); the
   Top-N selector and evidence panels read the bundled local cache (works offline).
 - Prefer two terminals? Backend: `source venv/bin/activate && uvicorn src.api.main:app --reload --port 8000`; frontend: `cd frontend && npm install && npm run dev`.
@@ -44,7 +44,7 @@ python3 -m venv venv
 source venv/bin/activate           # Windows: venv\Scripts\activate
 
 # 2. Install dependencies
-pip install -r requirements.txt
+pip install -r requirements/base.txt
 ```
 
 For every later session, just re-activate the environment:
@@ -208,10 +208,10 @@ that matches your machine:
 
 ```bash
 # Apple Silicon (arm64) / Linux / Windows - default torch backend
-pip install -r requirements-extension-a.txt
+pip install -r requirements/extension-a.txt
 
 # x86 macOS / Intel Mac - TORCH-FREE backend (recommended there)
-pip install -r requirements-extension-a-onnx-local.txt
+pip install -r requirements/extension-a-onnx-local.txt
 ```
 
 The scorer backend is selectable, so the same code runs on any machine:
@@ -323,8 +323,8 @@ UI-framework-free logic layer in `src/ui/data_access.py`. It reuses the core
 scikit-learn stack (no torch), so it runs on any machine including Intel Macs.
 
 ```bash
-pip install -r requirements.txt -r requirements-api.txt
-pip install -r requirements-extension-a-onnx-local.txt   # for the sentiment panel
+pip install -r requirements/base.txt -r requirements/api.txt
+pip install -r requirements/extension-a-onnx-local.txt   # for the sentiment panel
 ./start.sh   # starts FastAPI (:8000) and the Vite React dev server (:5173)
 ```
 
@@ -361,11 +361,11 @@ holds. The check is written against the indicator values rather than the advisor
 flow, so it audits the output instead of restating the code.
 
 ```bash
-python run_faithfulness.py
+python scripts/run_faithfulness.py
 ```
 
 It runs entirely off the committed CSV cache and needs no network. The result is written to
-`faithfulness_results.json`, which is committed: 11,975 recommendations, 59,952 sentences,
+`reports/faithfulness_results.json`, which is committed: 11,975 recommendations, 59,952 sentences,
 complete coverage and accuracy, no violation recorded. Section 5.6 of the final report
 quotes these figures.
 
@@ -402,8 +402,10 @@ src/
     profile.py                 #   risk/horizon profile -> view settings                                 [done]
   api/main.py                  # FastAPI backend serving the React frontend (frontend/)
   cli/                         # command-line entry points (cli, backtest, multi, walkforward, select, sentiment, direction)
+scripts/                       # evaluation drivers (run_faithfulness, run_latency, run_methodology) -> write to reports/
 tests/                         # pytest suite
-reports/                       # generated backtest reports
+reports/                       # generated backtest reports + committed evidence (faithfulness/methodology/latency results)
+requirements/                  # base.txt (core) + api.txt, extension-a.txt, extension-a-onnx-local.txt (optional)
 ```
 
 Modules marked `[scaffold]` have fixed signatures and phase-tagged `TODO`s. The

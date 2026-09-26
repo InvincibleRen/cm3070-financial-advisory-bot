@@ -23,8 +23,14 @@ import re
 import sys
 from collections import Counter
 from dataclasses import dataclass
+from pathlib import Path
 
 import pandas as pd
+
+# This script lives in scripts/; put the repo root on the path so `import src`
+# works regardless of the current working directory.
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 import src.selection.universe as U
 from src.common.indicators import latest_indicator_snapshot
@@ -179,7 +185,8 @@ def main() -> None:
         "violations": violations,
         "unmatched_examples": dict(unmatched.most_common(10)),
     }
-    with open("faithfulness_results.json", "w") as fh:
+    out_path = ROOT / "reports" / "faithfulness_results.json"
+    with open(out_path, "w") as fh:
         json.dump(out, fh, indent=2, default=float)
     print(json.dumps({k: v for k, v in out.items() if k != "violations"}, indent=2, default=float))
     print(f"\nviolations recorded: {len(violations)}")

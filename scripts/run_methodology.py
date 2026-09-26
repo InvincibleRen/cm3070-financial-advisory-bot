@@ -7,8 +7,14 @@ Reproduces the headline walk-forward run, then adds:
 """
 import json
 import sys
+from pathlib import Path
 
 import numpy as np
+
+# This script lives in scripts/; put the repo root on the path so `import src`
+# works regardless of the current working directory.
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 import src.selection.universe as U
 from src.cli.select_cli import month_end_rebalances
@@ -100,9 +106,10 @@ def main() -> None:
                   bootstrap_return_metrics(r, block_size=bs).items()},
     }
 
-    with open("methodology_results.json", "w") as fh:
+    out_path = ROOT / "reports" / "methodology_results.json"
+    with open(out_path, "w") as fh:
         json.dump(out, fh, indent=2, default=float)
-    print("\n=== WROTE methodology_results.json ===")
+    print(f"\n=== WROTE {out_path.relative_to(ROOT)} ===")
     print(json.dumps(out, indent=2, default=float))
 
 

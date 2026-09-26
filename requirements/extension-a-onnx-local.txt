@@ -1,6 +1,6 @@
 # Extension A (FinBERT news sentiment) — TORCH-FREE backend for x86 macOS / Intel Mac.
 #
-#   pip install -r requirements-extension-a-onnx-local.txt
+#   pip install -r requirements/extension-a-onnx-local.txt
 #   python -m src.cli.sentiment_cli AAPL MSFT --backend onnx-local
 #
 # Why this file exists: PyTorch's last x86-macOS wheel is 2.2.2 and the modern

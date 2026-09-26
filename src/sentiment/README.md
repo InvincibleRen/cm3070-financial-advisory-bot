@@ -22,8 +22,8 @@ download, no torch/onnx needed. Three inference backends share one scoring path
 
 | Backend | Runs on | Install | Notes |
 |---|---|---|---|
-| `torch` *(default)* | Apple Silicon / Linux / Windows | `requirements-extension-a.txt` | Normal `pip install torch`; forces safetensors to dodge the `torch.load` CVE gate. |
-| `onnx-local` | **x86 macOS / Intel Mac**, + everywhere | `requirements-extension-a-onnx-local.txt` | **Torch-free**: loads a *pre-exported* `model.onnx` on ONNX Runtime + `tokenizers`. Never imports torch or `optimum`. |
+| `torch` *(default)* | Apple Silicon / Linux / Windows | `requirements/extension-a.txt` | Normal `pip install torch`; forces safetensors to dodge the `torch.load` CVE gate. |
+| `onnx-local` | **x86 macOS / Intel Mac**, + everywhere | `requirements/extension-a-onnx-local.txt` | **Torch-free**: loads a *pre-exported* `model.onnx` on ONNX Runtime + `tokenizers`. Never imports torch or `optimum`. |
 | `onnx` (optimum) | where torch ≥ 2.4 exists | `+ optimum[onnxruntime]` | Exports via `optimum`, which traces with torch - so **not** an Intel-Mac fix. |
 
 > On an Intel Mac use `--backend onnx-local`. The `torch` and optimum-`onnx`

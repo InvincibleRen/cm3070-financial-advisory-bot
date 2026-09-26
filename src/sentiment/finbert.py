@@ -33,7 +33,7 @@ Design
   technical + fundamental features only).
 
 Transaction note: the heavy dependencies (``transformers``, ``torch``) live in
-``requirements-extension-a.txt``, keeping the core install lightweight.
+``requirements/extension-a.txt``, keeping the core install lightweight.
 """
 from __future__ import annotations
 

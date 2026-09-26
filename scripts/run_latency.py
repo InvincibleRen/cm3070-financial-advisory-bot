@@ -22,17 +22,22 @@ from __future__ import annotations
 import argparse
 import json
 import statistics
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
 
+# This script lives in scripts/; put the repo root on the path so `import src`
+# works regardless of the current working directory.
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
 from src.common.data.yfinance_provider import Quote
 from src.common.indicators import latest_indicator_snapshot
 from src.explanation.advisor import generate_recommendation
 
-ROOT = Path(__file__).resolve().parent
 PRICES = ROOT / "data" / "prices"
 REPORTS = ROOT / "reports"
 EVIDENCE = ROOT / "data" / "evidence" / "evidence.json"
