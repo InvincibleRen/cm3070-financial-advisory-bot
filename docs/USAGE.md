@@ -16,7 +16,7 @@ Later sessions, just re-activate:
 source venv/bin/activate           # Windows: venv\Scripts\activate
 ```
 
-All commands below run from the project root with the virtual environment active. The CLI tools live under `src.cli.*` (code is organised by function — see *Project layout* below).
+All commands below run from the project root with the virtual environment active. The CLI tools live under `src.cli.*` (code is organised by function; see *Project layout* below).
 
 ## 1. Get a live recommendation
 
@@ -73,7 +73,7 @@ python -m src.cli.walkforward_cli AAPL SPY --period 8y --train 252 --test 63 --c
 
 ## 5. Cross-sectional ML stock selection (the core)
 
-Loads the universe, builds the leakage-safe feature matrix and forward-return labels, then walk-forward selects the top-N each month and evaluates — net of transaction costs — against an equal-weight universe benchmark and SPY. Reports both the gradient-boosting ranker and the logistic baseline, plus prediction-quality metrics (precision@N, mean AUC vs the ~0.5 base rate) and a per-year consistency breakdown (strategy vs benchmark, monthly win-rate). Writes a markdown report to `reports/`.
+Loads the universe, builds the leakage-safe feature matrix and forward-return labels, then walk-forward selects the top-N each month and evaluates, net of transaction costs, against an equal-weight universe benchmark and SPY. Reports both the gradient-boosting ranker and the logistic baseline, plus prediction-quality metrics (precision@N, mean AUC vs the ~0.5 base rate) and a per-year consistency breakdown (strategy vs benchmark, monthly win-rate). Writes a markdown report to `reports/`.
 
 ```bash
 # Default universe (built-in ~27 large-caps), top-3, both rankers
@@ -118,7 +118,7 @@ python -m src.cli.robustness_cli --model logistic --n-trials 30
 
 ## 6. News sentiment (extension, optional)
 
-FinBERT scores recent headlines into a sentiment feature that joins the core feature matrix; its value is proved by an ablation (selector with vs without the sentiment column). Removable — deleting `src/sentiment/` leaves the core selector fully working.
+FinBERT scores recent headlines into a sentiment feature that joins the core feature matrix; its value is proved by an ablation (selector with vs without the sentiment column). Removable: deleting `src/sentiment/` leaves the core selector fully working.
 
 Heavy dependencies are kept out of the core install:
 
@@ -136,7 +136,7 @@ pip install -r requirements/extension-a-onnx-local.txt
 | `onnx-local` | `--backend onnx-local` | **x86 macOS / Intel Mac**, + everywhere | Torch-free: loads a pre-exported `model.onnx` on ONNX Runtime + `tokenizers`. |
 | `onnx` (optimum) | `--backend onnx` | Where torch ≥ 2.4 exists | Exports via `optimum` (needs torch to trace); not for Intel Mac. |
 
-**macOS note:** PyTorch's last x86-macOS (Intel Mac) build is 2.2.2, past what the modern ML stack needs, so neither `torch` nor optimum `onnx` installs there — use `--backend onnx-local`, which never imports torch. On Apple Silicon, create the venv from an **arm64** Python (e.g. `/opt/homebrew/bin/python3`), not x86/Rosetta, and the default `torch` backend works with Metal (MPS).
+**macOS note:** PyTorch's last x86-macOS (Intel Mac) build is 2.2.2, past what the modern ML stack needs, so neither `torch` nor optimum `onnx` installs there; use `--backend onnx-local`, which never imports torch. On Apple Silicon, create the venv from an **arm64** Python (e.g. `/opt/homebrew/bin/python3`), not x86/Rosetta, and the default `torch` backend works with Metal (MPS).
 
 Live "sentiment right now" demo (yfinance only exposes recent news, so this is a demonstration, not a historical backtest):
 
@@ -166,7 +166,7 @@ results = run_ablation(fm, labels, prices, rebalance_dates)   # {"with_sentiment
 
 ## 7. Per-stock direction forecast (extension, optional)
 
-A short-term up/down confirmation signal for the stocks the core selected, run only on the top-N. Framework-light (same scikit-learn stack as the core, no torch/TF — runs on any machine including Intel Macs) and evaluated honestly: out-of-sample directional accuracy against the naive base rate, plus AUC. Removable — deleting `src/direction/` leaves the core selector fully working.
+A short-term up/down confirmation signal for the stocks the core selected, run only on the top-N. Framework-light (same scikit-learn stack as the core, no torch/TF; runs on any machine including Intel Macs) and evaluated honestly: out-of-sample directional accuracy against the naive base rate, plus AUC. Removable: deleting `src/direction/` leaves the core selector fully working.
 
 ```bash
 python -m src.cli.direction_cli AAPL MSFT NVDA          # confirm the core's picks
@@ -177,7 +177,7 @@ python -m src.cli.direction_cli AAPL --no-calibrate     # raw (uncalibrated) P(u
 
 Prints, per ticker: out-of-sample accuracy, base rate, edge (accuracy − base rate), AUC, Brier score, calibration error (ECE), and current P(up) over the next `--horizon` days; writes a markdown report to `reports/`. Single-stock direction is close to a coin flip, so a small or negative edge is an honest, acceptable outcome.
 
-**Pooled cross-stock path (`src/direction/pooled.py`).** The per-stock model relearns from only ~250 rows each fold, which overfits noise. The pooled path trains one model per rebalance date across a whole basket of stocks (tens of thousands of rows), with the same leakage guarantees (causal features, forward labels, a horizon-day embargo, a trailing window). Pooling plus calibration lifts accuracy to the base rate and shrinks calibration error; selective prediction (acting only on the most confident calls) recovers a small positive edge. Reads the local price cache — fully offline and reproducible:
+**Pooled cross-stock path (`src/direction/pooled.py`).** The per-stock model relearns from only ~250 rows each fold, which overfits noise. The pooled path trains one model per rebalance date across a whole basket of stocks (tens of thousands of rows), with the same leakage guarantees (causal features, forward labels, a horizon-day embargo, a trailing window). Pooling plus calibration lifts accuracy to the base rate and shrinks calibration error; selective prediction (acting only on the most confident calls) recovers a small positive edge. Reads the local price cache; fully offline and reproducible:
 
 ```bash
 python -m src.cli.pooled_direction_cli                    # default 30-name basket, horizon 5
@@ -185,7 +185,7 @@ python -m src.cli.pooled_direction_cli AAPL MSFT NVDA     # a custom basket
 python -m src.cli.pooled_direction_cli --no-calibrate     # ablate the calibration step
 ```
 
-Prints the pooled out-of-sample metrics and a selective-prediction table (accuracy when only the most confident X% of calls are kept); writes a `direction_pooled_*.md` report. AUC stays near 0.5, which honestly locates the ceiling: single-stock short-horizon direction carries little ranking information — the pooled path's value is trustworthy probabilities and a usable confidence ranking, not a large predictive edge.
+Prints the pooled out-of-sample metrics and a selective-prediction table (accuracy when only the most confident X% of calls are kept); writes a `direction_pooled_*.md` report. AUC stays near 0.5, which honestly locates the ceiling: single-stock short-horizon direction carries little ranking information; the pooled path's value is trustworthy probabilities and a usable confidence ranking, not a large predictive edge.
 
 **Probability calibration (`--calibrate`, on by default).** The displayed P(up) is calibrated to read as a true frequency (a "63%" day really rises ~63% of the time). Fit only on held-out CV folds of each training window (leakage-safe); cuts calibration error sharply (AAPL: ECE 0.17 → 0.06) without costing discrimination. `--no-calibrate` for the raw score.
 
@@ -276,6 +276,6 @@ The ML core (Phases 0-2) is complete: universe loader, feature matrix, labels, t
 
 Built as a main function plus two removable extensions:
 
-1. **Core (~70%) — cross-sectional stock selection.** From a universe of stocks with many indicators (PE, sector, earnings, momentum…), rank and select the few most likely to be profitable, then tune the model.
-2. **Extension B (~15%) — per-stock direction forecast.** Time-series model that feeds financial factors for one asset and predicts up/down, run only on the selected top-N as a confirmation signal.
-3. **Extension A (~15%) — NLP news/sentiment.** FinBERT scores market news and sentiment as an added feature, proved via an ablation study.
+1. **Core (~70%): cross-sectional stock selection.** From a universe of stocks with many indicators (PE, sector, earnings, momentum…), rank and select the few most likely to be profitable, then tune the model.
+2. **Extension B (~15%): per-stock direction forecast.** Time-series model that feeds financial factors for one asset and predicts up/down, run only on the selected top-N as a confirmation signal.
+3. **Extension A (~15%): NLP news/sentiment.** FinBERT scores market news and sentiment as an added feature, proved via an ablation study.
